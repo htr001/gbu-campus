@@ -27,6 +27,16 @@ npm start
 
 Open http://127.0.0.1:5190/ for the day tour or http://127.0.0.1:5190/night/ for the night game. Run all commands from the repository root; the root build packages both modes together. Rebuild after changing source files. The completed build works without internet access. Fonts, geometry, materials and sound generation are local.
 
+### Development mode (hot reload)
+For fast iteration with hot module replacement, you can run each scene's Vite dev server directly instead of doing a full rebuild every time. The two dev servers use different ports so they do not conflict — you can run both at the same time if you want to edit both scenes.
+
+```sh
+npm run dev:tour   # day tour  → http://127.0.0.1:5189
+npm run dev:night  # haunted night → http://127.0.0.1:5191
+```
+
+These shortcuts simply run `npm run dev` inside the respective `tour/` or `night/` subdirectory. Stop them with Ctrl+C when finished. When you are done editing source and want to produce the deployable static site, fall back to the regular `npm run build && npm start` flow.
+
 On Windows, after the first build you can also double-click **Start-GBU-Campus.cmd**. It uses the existing Codex Node runtime when available, otherwise Node from PATH, and opens the game.
 
 **5190 is the default local port.** Both `npm start` and the Windows launcher respect the `PORT` environment variable. To choose another port, set it before starting. For example, in PowerShell:
