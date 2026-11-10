@@ -285,8 +285,9 @@ export function build(scene, renderer, {night = false, onProgress = () => {}} = 
   box(126,.063,42,13.8,.02,11.5,m.court);for(const x of [119.1,132.9])box(x,.082,42,.06,.014,11.5,m.line);for(const z of [36.25,47.75])box(126,.082,z,13.8,.014,.06,m.line);
   box(126,.086,42,13.8,.016,.065,m.line);const centre=[];for(let i=0;i<=48;i++){const a=i/48*TAU;centre.push([126+Math.cos(a)*2,.10,42+Math.sin(a)*2]);}curve(centre,.035,m.line);
   for(const z of [36.25,47.75]){
-    const dir=z<42?-1:1;for(const x of [124,128]){beam([x,0,z],[x,1.6,z],.055,m.whiteTrim);beam([x,1.6,z],[x,1.1,z+dir*1.1],.035,m.whiteTrim);beam([x,0,z+dir*1.1],[x,1.1,z+dir*1.1],.035,m.whiteTrim);}
+    const dir=z<42?-1:1;for(const x of [124,128]){beam([x,0,z],[x,1.6,z],.055,m.whiteTrim);beam([x,1.6,z],[x,1.1,z+dir*1.1],.035,m.whiteTrim);beam([x,0,z+dir*1.1],[x,1.1,z+dir*1.1],.035,m.whiteTrim);obstacle(x,z,.32,.32,'goal-post');}
     beam([124,1.6,z],[128,1.6,z],.055,m.whiteTrim);beam([124,1.1,z+dir*1.1],[128,1.1,z+dir*1.1],.025,m.line);
+    obstacle(126,z+dir*1.1,4.2,.24,'goal-net');
     for(let x=124.25;x<128;x+=.32)beam([x,.1,z+dir*1.1],[x,1.1,z+dir*1.1],.011,m.line, .011,4);
     for(let y=.15;y<1.1;y+=.24)beam([124,y,z+dir*1.1],[128,y,z+dir*1.1],.011,m.line,.011,4);
     box(126,.086,z-dir*1.25,6.3,.015,.06,m.line);for(const x of [122.85,129.15])box(x,.086,z-dir*.625,.06,.015,1.25,m.line);

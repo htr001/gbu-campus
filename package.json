@@ -6,7 +6,9 @@
   "scripts": {
     "build": "node tools/build.mjs",
     "start": "node server.mjs",
-    "verify": "node tools/verify-campus.mjs"
+    "verify": "node tools/verify-campus.mjs",
+    "dev:tour": "cd tour && npm run dev",
+    "dev:night": "cd night && npm run dev"
   },
   "engines": { "node": ">=22.12" },
   "dependencies": {},
